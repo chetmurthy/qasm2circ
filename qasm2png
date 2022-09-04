@@ -1,4 +1,4 @@
-#!/bin/csh
+#!/bin/csh -x
 #
 # File:   qasm2png
 # Date:   23-Mar-04
@@ -14,12 +14,15 @@ set GS = "gs -sDEVICE=pnmraw -r400 -dNOPAUSE"
 
 foreach i ($*)
 
-        set t = `echo $i | sed "s/.qasm//"`
+        set d = `dirname $i`
+        set b = `basename $i`
+        set t = `echo $b | sed "s/.qasm//"`
 
-	python2 qasm2tex.py $i >! $t.tex
-	if (-z $t.tex) then
+	python2 qasm2tex.py $i >! $d/$t.tex
+	if (-z $d/$t.tex) then
 	    echo "error in qasm2tex on $t.tex! aborting."
 	else
-	    latex2png $t.tex
+	    #pdflatex -output-directory $d $d/$t.tex
+	    latex2png $d/$t.tex
 	endif
 end
