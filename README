@@ -23,10 +23,9 @@ earlier version of this package.
 -----------------------------------------------------------------------------
 REQUIREMENTS:
 
-- latex2e with xypic (included in tetex)
-- python version 2.3 or greater
-- ghostscript (and epstopdf)
-- netpbm (for creation of png files)
+- python version 2.3 or greater but < 3.0
+- latex and pdflatex
+- latex2rtf (which provides latex2png)
 
 -----------------------------------------------------------------------------
 USAGE:
