@@ -586,7 +586,7 @@ class qcircuit:		# quantum circuit class
             self.make_matrix()
 
         print ''
-        print r'\documentclass[11pt]{article}'        # output latex header
+        print r'\documentclass[preview]{standalone}'        # output latex header
         print r'\input{xyqcirc.tex}'
 
         # now go through all gates and output latex definitions

@@ -1,4 +1,4 @@
-#!/bin/csh
+#!/bin/csh -x
 #
 # File:   qasm2pdf
 # Date:   23-Mar-04
@@ -14,12 +14,10 @@ foreach i ($*)
 
         set t = `echo $i | sed "s/.qasm//"`
 
-	python qasm2tex.py $i >! $t.tex
+	python2 qasm2tex.py $i >! $t.tex
 	if (-z $t.tex) then
 	    echo "error in qasm2tex on $t.tex! aborting."
 	else
-	    latex $t
-	    dvips -D2400 -E -o $t.eps $t
-	    epstopdf $t.eps
+	    pdflatex $t
 	endif
 end
