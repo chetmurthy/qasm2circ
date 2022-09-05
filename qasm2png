@@ -22,7 +22,8 @@ foreach i ($*)
 	if (-z $d/$t.tex) then
 	    echo "error in qasm2tex on $t.tex! aborting."
 	else
-	    #pdflatex -output-directory $d $d/$t.tex
-	    latex2png $d/$t.tex
+	    setenv TEXINPUTS `pwd`: 
+	    pdflatex -output-directory $d $d/$t.tex
+	    pdftocairo -png -singlefile $d/$t.pdf $d/$t
 	endif
 end

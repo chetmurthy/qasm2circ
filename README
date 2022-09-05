@@ -25,7 +25,8 @@ REQUIREMENTS:
 
 - python version 2.3 or greater but < 3.0
 - latex and pdflatex
-- latex2rtf (which provides latex2png)
+- poppler-utils (which provides pdftocairo)
+- texlive-font-utils (provides repstopdf)
 
 -----------------------------------------------------------------------------
 USAGE:
